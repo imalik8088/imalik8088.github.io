@@ -3,8 +3,8 @@ title: Akhlaq Malik
 description: 'IT-Consultant'
 url: 'http://imalik8088.de'
 
-# google_analytics: 'UA-XXXXXX-X'
-# disqus_shortname: 'your-disqus-name'
+google_analytics: 'UA-114739204-1'
+# disqus_shortname: 'guenterhans'
 
 author:
   name: 'Akhlaq Malik'
@@ -24,7 +24,7 @@ defaults:
 # Build settings
 destination: _site
 paginate: 10
-permalink: /:year/:title/
+permalink: /:year/:month/:title/
 markdown: kramdown
 highlighter: rouge
 
