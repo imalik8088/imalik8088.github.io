@@ -1,9 +1,9 @@
 # Site settings
 title: Akhlaq Malik
-description: 'IT-Consultant'
+description: 'Independent IT-Consultant'
 url: 'http://imalik8088.de'
 
-google_analytics: 'UA-114739204-1'
+# google_analytics: 'UA-114739204-1'
 # disqus_shortname: 'guenterhans'
 
 author:
