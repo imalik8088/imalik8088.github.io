@@ -47,6 +47,16 @@ The `local-job.yml` file echos some variable and also demonstrates the functiona
 include:
   - local: '/ci/local-job.yml'
 
+variables:
+  OVERRIDE_VAR: "OVERRIDE VALUE IN CI FILE"
+  VAR1: "OVERRIDE VAR 1 FROM CI FILE"
+  DEBUG: 'TRUE'
+
+local-job:
+  script:
+    - echo "OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI"
+    - echo $OVERRIDE_VAR  
+
 # --- OUTPUT OF THE JOB
 # $ echo "before_script from 'include-local' task"
 # before_script from 'include-local' task  
@@ -67,6 +77,11 @@ Having some parts of your build in a separate file can help clean up big pipelin
 include:
   - project: 'imalik8088/gitlab-ci-pipeline'
   file: '/maven-package.yml'
+
+maven-package:
+  artifacts:
+    paths:
+      - target/gitlab-ci-1.0-SNAPSHOT.jar  
 ```
 
 This includes a file called `maven-package.yml` from the same GitLab organization but a **different** repository. Here again, you are able to change the default behavior by overriding the blocks or variables. This job definition will **expand** the original job definition, where we are defining a project-specific artifact where a .jar by the java application is been used to define it as an artifact in the context of GitLab. This comes in quite handy when you don't want any defaults but project-specific definition.
@@ -80,9 +95,15 @@ Here is an example of that:
 ```yaml
 include:
   - remote: 'https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml'
+
+build-docker:
+  variables:
+    IMAGE_NAME: gitlab-ci-java
+  dependencies:
+    - maven-package
 ```
 
-In this job definition, we are building a docker image. You have to define usually a little job because you have more steps use the docker in your pipeline (**Markus**: den vorherigen satz verstehen ich nicht). This ceremony is now hidden inside an external job definition.  The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the `maven-package` job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.
+In this job definition, we are building a docker image. You have to define usually some extra code if you want to use docker in your CI (better known as Docker-in-Docker). This ceremony is now hidden inside an external job definition.  The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the `maven-package` job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.
 
 ### Notes
 * One thing to note here is, that although you are defining your stages in the remote job definition you have to list all of the stage in the main .gitlab-ci file which defines the order in which jobs will be executed.
@@ -91,4 +112,4 @@ In this job definition, we are building a docker image. You have to define usual
 ## Conclusion
 Gitlab and Gitlab CI have been build in the era of cloud-native applications and the whole integration of GitLab and CI/CD makes the whole DevOps lifecycle a breeze. With the newly added feature to include jobs definition from a local definition, a central repository or remote URL, we can finally get rid of all the repetition in our build definitions. 
 
-Thanks for the review [Markus](https://twitter.com/markus1189)
+_Thanks for the review [Markus](https://twitter.com/markus1189)!_
