@@ -47,5 +47,14 @@ Kafka Connect Kafka Before getting into the Kafka Connect framework, let us brie
       <description>archives</description>
     </item>
     
+    <item>
+      <title>Imprint</title>
+      <link>https://imalik8088.de/imprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://imalik8088.de/imprint/</guid>
+      <description>imprint</description>
+    </item>
+    
   </channel>
 </rss>
