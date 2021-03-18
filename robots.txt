@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://imalik8088.de/sitemap.xml

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kafka on imalik8088</title>
+    <link>https://imalik8088.de/tags/kafka/</link>
+    <description>Recent content in kafka on imalik8088</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Feb 2018 23:08:25 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ETL with Kafka</title>
+      <link>https://imalik8088.de/posts/etl-with-kafka/</link>
+      <pubDate>Fri, 02 Feb 2018 23:08:25 +0100</pubDate>
+      
+      <guid>https://imalik8088.de/posts/etl-with-kafka/</guid>
+      <description>Originally published at codecentrics blog
+&amp;ldquo;ETL with Kafka&amp;rdquo; is a catchy phrase that I purposely chose for this post instead of a more precise title like &amp;ldquo;Building a data pipeline with Kafka Connect&amp;rdquo;.
+TLDR You don’t need to write any code for pushing data into Kafka, instead just choose your connector and start the job with your necessary configurations. And it’s absolutely Open Source!
+Kafka Connect Kafka Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines.</description>
+    </item>
+    
+  </channel>
+</rss>
