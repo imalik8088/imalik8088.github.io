@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>continuous delivery on imalik8088</title>
+    <link>https://imalik8088.de/tags/continuous-delivery/</link>
+    <description>Recent content in continuous delivery on imalik8088</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Mar 2021 09:00:00 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apache Flink Continuous Deployment</title>
+      <link>https://imalik8088.de/posts/apache-flink-continuous-deployment/</link>
+      <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
+      
+      <guid>https://imalik8088.de/posts/apache-flink-continuous-deployment/</guid>
+      <description>Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.
+Apache Flink on the other hand has the freedom to choose from a variety of source systems, e.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,25 @@
     <description>Recent content in Tags on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Feb 2019 23:44:02 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 09:00:00 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apache flink</title>
+      <link>https://imalik8088.de/tags/apache-flink/</link>
+      <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
+      
+      <guid>https://imalik8088.de/tags/apache-flink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continuous delivery</title>
+      <link>https://imalik8088.de/tags/continuous-delivery/</link>
+      <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
+      
+      <guid>https://imalik8088.de/tags/continuous-delivery/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gitlab-ci</title>
       <link>https://imalik8088.de/tags/gitlab-ci/</link>
