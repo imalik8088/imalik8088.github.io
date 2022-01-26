@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://imalik8088.de/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.92.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="https://imalik8088.de/tags/kafka/index.xml">
 
 
@@ -29,7 +29,7 @@
 <meta property="og:description" content="Website of Akhlaq Malik (imalik8088)" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://imalik8088.de/tags/kafka/" />
-<meta property="og:updated_time" content="2018-02-02T23:08:25+01:00" /><meta property="og:site_name" content="imalik8088" />
+<meta property="og:updated_time" content="2022-01-26T09:00:00+01:00" /><meta property="og:site_name" content="imalik8088" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="kafka"/>
 <meta name="twitter:description" content="Website of Akhlaq Malik (imalik8088)"/>
@@ -117,6 +117,26 @@
 
 
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover"><img src="https://images.unsplash.com/photo-1564648351416-3eec9f3e85de?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="">
+</figure>
+
+  <header class="entry-header">
+    <h2>
+      Kafka, where are all my messages 😱?
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Recently I got the chance to help a customer moving from a Helm based deployment of Apache Kafka in Kubernetes to the Strimzi, which manages the deployment of Kafka in Kubernetes with an operator. In the final phase, I had to transfer the data to the newly deployed Apache Kafka.
+Setting the scope The customer is using compacted topics (cleanup.policy=compact and log.rentention.ms=-1) as the default configuration for all topics in Apache Kafka, so they’re using it somehow like a database where messages are produced with an unique ID and are nulled afterwards when it is required to delete a message....</p>
+  </section>
+  <footer class="entry-footer">
+
+January 26, 2022&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
+</footer>
+  <a class="entry-link" aria-label="post link to Kafka, where are all my messages 😱?" href="https://imalik8088.de/posts/kafka_where_are_all_my_messages/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
 
   <header class="entry-header">
     <h2>
@@ -137,7 +157,7 @@ February 2, 2018&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 </article>
 
     </main><footer class="footer">
-    <span>&copy; 2021 <a href="https://imalik8088.de/">imalik8088</a></span>
+    <span>&copy; 2022 <a href="https://imalik8088.de/">imalik8088</a></span>
     <span>&middot;</span>
     <span><a href="/imprint" rel="noopener noreferrer">imprint</a></span>
 </footer>

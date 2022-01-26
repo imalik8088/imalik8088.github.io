@@ -24,7 +24,7 @@ Kafka Connect Kafka Before getting into the Kafka Connect framework, let us brie
 <link rel="mask-icon" href="https://imalik8088.de/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.92.0" />
 
 
 <meta property="og:title" content="ETL with Kafka" />
@@ -226,18 +226,18 @@ February 2, 2018&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 <p><img src="/posts/deep-dive-kafka-connect.png" alt="Deep-Dive-Kafka-Connect"></p>
 <h3 id="standalone">Standalone<a hidden class="anchor" aria-hidden="true" href="#standalone">#</a></h3>
 <p>Kafka connect can be started in two different modes. The first mode is called standalone and should be used only in development because offsets are being maintained on the file system. This would be really bad if you were running this mode in production and your machine was unavialable. This could cause the loss of the state, which means the offset is lost and you as a develeoper don’t know how much data has been processed.</p>
-<pre><code># connnect-standalone.properties
+<pre tabindex="0"><code># connnect-standalone.properties
 offset.storage.file.filename=/tmp/connect.offsets
 </code></pre><h3 id="distributed">Distributed<a hidden class="anchor" aria-hidden="true" href="#distributed">#</a></h3>
 <p>The second mode is called <em>distributed</em>. There, the configuration, state and status are stored in Kafka itself in different topics which benefit from all Kafka characteristics such as resilience and scalability. Workers can start on different machines and the <em>group.id</em> attribute in the .properties file will eventually form the Kafka Connect Cluster which can be scaled up or down.</p>
-<pre><code># connnect-distributed.properties
+<pre tabindex="0"><code># connnect-distributed.properties
 group.id=connect-cluster
 config.storage.topic=connect-configs
 offset.storage.topic=connect-offsets
 status.storage.topic=connect-status
 </code></pre><p>So let’s look in the content of the pretty self-explanatory topic use in the configuration file:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">TOPIC</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">connect-configs</span>
-{<span style="color:#f92672">&#34;properties&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#75715e">// TOPIC =&gt; connect-configs
+</span><span style="color:#75715e"></span>{<span style="color:#f92672">&#34;properties&#34;</span>: {
   <span style="color:#f92672">&#34;connector.class&#34;</span>:<span style="color:#e6db74">&#34;c.e.t.k.c.twitter.TwitterSourceConnector&#34;</span>,
   <span style="color:#f92672">&#34;twitter.token&#34;</span>:<span style="color:#e6db74">&#34;XXXX&#34;</span>,
   <span style="color:#f92672">&#34;tasks.max&#34;</span>:<span style="color:#e6db74">&#34;1&#34;</span>,
@@ -250,16 +250,16 @@ status.storage.topic=connect-status
   <span style="color:#f92672">&#34;twitter.consumerkey&#34;</span>:<span style="color:#e6db74">&#34;XXXXX&#34;</span>
 }}
 
-<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">response</span>
-{<span style="color:#f92672">&#34;tasks&#34;</span>:<span style="color:#ae81ff">1</span>}
+<span style="color:#75715e">// response
+</span><span style="color:#75715e"></span>{<span style="color:#f92672">&#34;tasks&#34;</span>:<span style="color:#ae81ff">1</span>}
 {<span style="color:#f92672">&#34;state&#34;</span>:<span style="color:#e6db74">&#34;STARTED&#34;</span>}
 
-<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">TOPIC</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">connect-offsets</span>
-{<span style="color:#f92672">&#34;tweetId&#34;</span>:<span style="color:#ae81ff">968476484095610880</span>}
+<span style="color:#75715e">// TOPIC =&gt; connect-offsets
+</span><span style="color:#75715e"></span>{<span style="color:#f92672">&#34;tweetId&#34;</span>:<span style="color:#ae81ff">968476484095610880</span>}
 {<span style="color:#f92672">&#34;tweetId&#34;</span>:<span style="color:#ae81ff">968476527108263936</span>}
 
-<span style="color:#960050;background-color:#1e0010">//</span> <span style="color:#960050;background-color:#1e0010">TOPIC</span> <span style="color:#960050;background-color:#1e0010">=&gt;</span> <span style="color:#960050;background-color:#1e0010">connect-status</span>
-{<span style="color:#f92672">&#34;state&#34;</span>:<span style="color:#e6db74">&#34;RUNNING&#34;</span>,<span style="color:#f92672">&#34;trace&#34;</span>:<span style="color:#66d9ef">null</span>,<span style="color:#f92672">&#34;worker_id&#34;</span>:<span style="color:#e6db74">&#34;connect:8083&#34;</span>, <span style="color:#f92672">&#34;generation&#34;</span>:<span style="color:#ae81ff">2</span>}
+<span style="color:#75715e">// TOPIC =&gt; connect-status
+</span><span style="color:#75715e"></span>{<span style="color:#f92672">&#34;state&#34;</span>:<span style="color:#e6db74">&#34;RUNNING&#34;</span>,<span style="color:#f92672">&#34;trace&#34;</span>:<span style="color:#66d9ef">null</span>,<span style="color:#f92672">&#34;worker_id&#34;</span>:<span style="color:#e6db74">&#34;connect:8083&#34;</span>, <span style="color:#f92672">&#34;generation&#34;</span>:<span style="color:#ae81ff">2</span>}
 {<span style="color:#f92672">&#34;state&#34;</span>:<span style="color:#e6db74">&#34;UNASSIGNED&#34;</span>,<span style="color:#f92672">&#34;trace&#34;</span>:<span style="color:#66d9ef">null</span>,<span style="color:#f92672">&#34;worker_id&#34;</span>:<span style="color:#e6db74">&#34;connect:8083&#34;</span>, <span style="color:#f92672">&#34;generation&#34;</span>:<span style="color:#ae81ff">2</span>}
 {<span style="color:#f92672">&#34;state&#34;</span>:<span style="color:#e6db74">&#34;RUNNING&#34;</span>,<span style="color:#f92672">&#34;trace&#34;</span>:<span style="color:#66d9ef">null</span>,<span style="color:#f92672">&#34;worker_id&#34;</span>:<span style="color:#e6db74">&#34;connect:8083&#34;</span>, <span style="color:#f92672">&#34;generation&#34;</span>:<span style="color:#ae81ff">3</span>}
 </code></pre></div><p>The output shown here of the messages are just the values, the key of the message is used to identify the different connectors.</p>
@@ -335,7 +335,7 @@ status.storage.topic=connect-status
 
 </article>
     </main><footer class="footer">
-    <span>&copy; 2021 <a href="https://imalik8088.de/">imalik8088</a></span>
+    <span>&copy; 2022 <a href="https://imalik8088.de/">imalik8088</a></span>
     <span>&middot;</span>
     <span><a href="/imprint" rel="noopener noreferrer">imprint</a></span>
 </footer>

@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://imalik8088.de/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://imalik8088.de/tags/kafka/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://imalik8088.de/posts/kafka_where_are_all_my_messages/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://imalik8088.de/tags/mirror-maker/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://imalik8088.de/posts/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
+    <loc>https://imalik8088.de/tags/</loc>
+    <lastmod>2022-01-26T09:00:00+01:00</lastmod>
+  </url><url>
     <loc>https://imalik8088.de/tags/apache-flink/</loc>
     <lastmod>2021-03-30T09:00:00+01:00</lastmod>
   </url><url>
@@ -11,15 +29,6 @@
     <loc>https://imalik8088.de/tags/continuous-delivery/</loc>
     <lastmod>2021-03-30T09:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://imalik8088.de/</loc>
-    <lastmod>2021-03-30T09:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://imalik8088.de/posts/</loc>
-    <lastmod>2021-03-30T09:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://imalik8088.de/tags/</loc>
-    <lastmod>2021-03-30T09:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://imalik8088.de/tags/gitlab-ci/</loc>
     <lastmod>2019-02-04T23:44:02+01:00</lastmod>
   </url><url>
@@ -27,9 +36,6 @@
     <lastmod>2019-02-04T23:44:02+01:00</lastmod>
   </url><url>
     <loc>https://imalik8088.de/posts/etl-with-kafka/</loc>
-    <lastmod>2018-02-02T23:08:25+01:00</lastmod>
-  </url><url>
-    <loc>https://imalik8088.de/tags/kafka/</loc>
     <lastmod>2018-02-02T23:08:25+01:00</lastmod>
   </url><url>
     <loc>https://imalik8088.de/tags/kafka-connect/</loc>

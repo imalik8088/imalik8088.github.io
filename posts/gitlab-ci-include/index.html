@@ -22,7 +22,7 @@
 <link rel="mask-icon" href="https://imalik8088.de/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.92.0" />
 
 
 <meta property="og:title" content="Tired of repeated gitlab-ci files? Includes to the rescue!" />
@@ -225,12 +225,12 @@ February 4, 2019&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 </blockquote>
 <h3 id="1-include-snippets-from-the-same-repo-to-build-your-pipeline">1. Include snippets from the same repo to build your pipeline<a hidden class="anchor" aria-hidden="true" href="#1-include-snippets-from-the-same-repo-to-build-your-pipeline">#</a></h3>
 <p>The simplest way to extract your pipeline jobs from the main <code>.gitlab-ci.yml</code> is to move out the job definitions to a separate directory inside the same repo. In the following example, I moved the job definitions to the <code>ci</code> directory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
 ├── .gitlab-ci.yml
 ├── ci
 │   └── local-job.yml
 </code></pre></div><p>The <code>local-job.yml</code> file echos some variable and also demonstrates the functionality to override job definitions that have already been defined in the main <code>gitlab-ci.yml</code> file, here the <code>script</code> and <code>variables</code> keys.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
   - <span style="color:#f92672">local</span>: <span style="color:#e6db74">&#39;/ci/local-job.yml&#39;</span>
 
 <span style="color:#f92672">variables</span>:
@@ -253,7 +253,7 @@ February 4, 2019&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 </code></pre></div><h3 id="2-include-a-job-definition-from-another-repository-within-the-same-organization">2. Include a job definition from another repository within the same organization<a hidden class="anchor" aria-hidden="true" href="#2-include-a-job-definition-from-another-repository-within-the-same-organization">#</a></h3>
 <p><img src="/posts/gilab-ci.001.jpg#center" alt="example setup in microservice organizations"></p>
 <p>Having some parts of your build in a separate file can help clean up big pipeline definitions, but especially with multiple repositories this is still too much repetition.  For this use-case, GitLab also allows you to include from a another repository in the same organization:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
   - <span style="color:#f92672">project</span>: <span style="color:#e6db74">&#39;imalik8088/gitlab-ci-pipeline&#39;</span>
   <span style="color:#f92672">file</span>: <span style="color:#e6db74">&#39;/maven-package.yml&#39;</span>
 
@@ -265,7 +265,7 @@ February 4, 2019&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 <h3 id="3-include-a-job-definition-from-a-url">3. Include a job definition from a URL<a hidden class="anchor" aria-hidden="true" href="#3-include-a-job-definition-from-a-url">#</a></h3>
 <p>The third and last option we will look at, is to include a job definition file via an arbitrary URL.  This is even more powerful than the previous options, because you are free to query any http endpoint that returns the file.
 Here is an example of that:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
   - <span style="color:#f92672">remote</span>: <span style="color:#e6db74">&#39;https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml&#39;</span>
 
 <span style="color:#f92672">build-docker</span>:
@@ -344,7 +344,7 @@ Here is an example of that:</p>
 
 </article>
     </main><footer class="footer">
-    <span>&copy; 2021 <a href="https://imalik8088.de/">imalik8088</a></span>
+    <span>&copy; 2022 <a href="https://imalik8088.de/">imalik8088</a></span>
     <span>&middot;</span>
     <span><a href="/imprint" rel="noopener noreferrer">imprint</a></span>
 </footer>
