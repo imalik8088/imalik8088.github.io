@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>imalik8088</title>
     <link>https://imalik8088.de/</link>
@@ -34,7 +34,7 @@ Apache Flink on the other hand has the freedom to choose from a variety of sourc
       
       <guid>https://imalik8088.de/posts/gitlab-ci-include/</guid>
       <description>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&amp;rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
- MAKE THE GITLAB-CI.YML DRY AGAIN</description>
+MAKE THE GITLAB-CI.YML DRY AGAIN</description>
     </item>
     
     <item>
@@ -58,14 +58,6 @@ Kafka Connect Kafka Before getting into the Kafka Connect framework, let us brie
       <description>about_me</description>
     </item>
     
-    <item>
-      <title>Archive</title>
-      <link>https://imalik8088.de/archives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://imalik8088.de/archives/</guid>
-      <description>archives</description>
-    </item>
     
     <item>
       <title>Imprint</title>

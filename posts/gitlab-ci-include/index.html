@@ -6,15 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Tired of repeated gitlab-ci files? Includes to the rescue! | imalik8088</title>
-
-<meta name="keywords" content="gitlab-ci" />
+<meta name="keywords" content="gitlab-ci">
 <meta name="description" content="Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
- MAKE THE GITLAB-CI.YML DRY AGAIN">
+MAKE THE GITLAB-CI.YML DRY AGAIN">
 <meta name="author" content="Akhlaq Malik">
-<link rel="canonical" href="https://imalik8088.de/posts/gitlab-ci-include/" />
-<link href="/assets/css/stylesheet.min.ec7bb1a7eea5c77a7b3a3c86ac2ace14b9aaf92b6446a6b337df3a887b3c5d91.css" integrity="sha256-7Huxp&#43;6lx3p7OjyGrCrOFLmq&#43;StkRqazN986iHs8XZE=" rel="preload stylesheet"
-    as="style">
-
+<link rel="canonical" href="https://imalik8088.de/posts/gitlab-ci-include/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.83e70b8409491596b24bfce6a7f2c88e797beb91412e324e09c7a7dfc2cd07a8.css" integrity="sha256-g&#43;cLhAlJFZayS/zmp/LIjnl765FBLjJOCcen38LNB6g=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://imalik8088.de/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://imalik8088.de/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://imalik8088.de/favicon-32x32.png">
@@ -22,20 +21,54 @@
 <link rel="mask-icon" href="https://imalik8088.de/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.92.0" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
 
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
 
-<meta property="og:title" content="Tired of repeated gitlab-ci files? Includes to the rescue!" />
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Tired of repeated gitlab-ci files? Includes to the rescue!" />
 <meta property="og:description" content="Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
- MAKE THE GITLAB-CI.YML DRY AGAIN" />
+MAKE THE GITLAB-CI.YML DRY AGAIN" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://imalik8088.de/posts/gitlab-ci-include/" />
+<meta property="og:url" content="https://imalik8088.de/posts/gitlab-ci-include/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-02-04T23:44:02+01:00" />
 <meta property="article:modified_time" content="2019-02-04T23:44:02+01:00" /><meta property="og:site_name" content="imalik8088" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Tired of repeated gitlab-ci files? Includes to the rescue!"/>
 <meta name="twitter:description" content="Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
- MAKE THE GITLAB-CI.YML DRY AGAIN"/>
+MAKE THE GITLAB-CI.YML DRY AGAIN"/>
 
 
 <script type="application/ld+json">
@@ -64,11 +97,11 @@
   "@type": "BlogPosting",
   "headline": "Tired of repeated gitlab-ci files? Includes to the rescue!",
   "name": "Tired of repeated gitlab-ci files? Includes to the rescue!",
-  "description": "Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I\u0026amp;rsquo;m …",
+  "description": "Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I\u0026rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will\nMAKE THE GITLAB-CI.YML DRY AGAIN",
   "keywords": [
     "gitlab-ci"
   ],
-  "articleBody": "Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I’m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will\n MAKE THE GITLAB-CI.YML DRY AGAIN\n TL;DR As of GitLab CE version 11.7, you can use include commands to include your tasks from other .yml files. This is a big deal, because you don‘t have to repeat your self in each of your projects any more. Especially in projects that consist of a large number of microservices sharing (parts) of the pipeline definition is major win.\nGitLab Even after the acquisition of Github by Microsoft, I still am a big fan and daily visitor of Github to look for new things around in the tech projects of my interest.\nHowever, since approx. 1.5 years I‘m often confronted with GitLab installations at work and customers to serve as the internally hosted git service and I‘m kind of getting more and more to know about the strength of GitLab and the ecosystem around that, which is actually quite impressive. GitLab helps you as a developer to be more productive where it avoiding switches between for example Jenkins for your pipeline and code repository in Gogs.\nIntroduction Writing pipelines in Gitlab CI is quite an easy task when compared to writing Jenkins pipelines, at least for me. To be honest, I’m still trying to hide my Jenkins stuff that is related to private projects. On the other hand, GitLab CI is quite easy to understand and has great documentation where you can start right away without learning any special programming language (e.g. Groovy).\nUsage of Include Tag So the central part of this post is the newly available include tags{:target=\"_blank\"} feature in the Gitlab CE 11.7 version. Using them, you have the possibility to include other CI definitions, therefore allowing you to re-use your jobs from other files outside of your main repository. It is also possible to include remote .yaml files from other organizations. In the following, I will present some practical examples and some personal experience with this new feature.\nIn the following sections we will build the following pipeline:\n Demo project\nShared repo with pipeline job definitions\n 1. Include snippets from the same repo to build your pipeline The simplest way to extract your pipeline jobs from the main .gitlab-ci.yml is to move out the job definitions to a separate directory inside the same repo. In the following example, I moved the job definitions to the ci directory.\n. ├── .gitlab-ci.yml ├── ci │ └── local-job.yml The local-job.yml file echos some variable and also demonstrates the functionality to override job definitions that have already been defined in the main gitlab-ci.yml file, here the script and variables keys.\ninclude: - local: '/ci/local-job.yml' variables: OVERRIDE_VAR: \"OVERRIDE VALUE IN CI FILE\" VAR1: \"OVERRIDE VAR 1 FROM CI FILE\" DEBUG: 'TRUE' local-job: script: - echo \"OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI\" - echo $OVERRIDE_VAR  # --- OUTPUT OF THE JOB # $ echo \"before_script from 'include-local' task\" # before_script from 'include-local' task  # $ echo \"OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI\" # OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI  # $ echo $OVERRIDE_VAR # OVERRIDE VALUE IN CI FILE 2. Include a job definition from another repository within the same organization Having some parts of your build in a separate file can help clean up big pipeline definitions, but especially with multiple repositories this is still too much repetition. For this use-case, GitLab also allows you to include from a another repository in the same organization:\ninclude: - project: 'imalik8088/gitlab-ci-pipeline' file: '/maven-package.yml' maven-package: artifacts: paths: - target/gitlab-ci-1.0-SNAPSHOT.jar  This includes a file called maven-package.yml from the same GitLab organization but a different repository. Here again, you are able to change the default behavior by overriding the blocks or variables. This job definition will expand the original job definition, where we are defining a project-specific artifact where a .jar by the java application is been used to define it as an artifact in the context of GitLab. This comes in quite handy when you don’t want any defaults but project-specific definition.\n3. Include a job definition from a URL The third and last option we will look at, is to include a job definition file via an arbitrary URL. This is even more powerful than the previous options, because you are free to query any http endpoint that returns the file. Here is an example of that:\ninclude: - remote: 'https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml' build-docker: variables: IMAGE_NAME: gitlab-ci-java dependencies: - maven-package In this job definition, we are building a docker image. You have to define usually some extra code if you want to use docker in your CI (better known as Docker-in-Docker). This ceremony is now hidden inside an external job definition. The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the maven-package job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.\nNotes  One thing to note here is, that although you are defining your stages in the remote job definition you have to list all of the stage in the main .gitlab-ci file which defines the order in which jobs will be executed. I have included in the demo project a gitlab ci file from a personal project were its about 125 lines of code and lot of repetitions. We can imagine how this gitlab ci file can benefit from the new feature described in this post and almost every organization have repetitive jobs like build, test, coverage, build docker images, deploy, etc.  Conclusion Gitlab and Gitlab CI have been build in the era of cloud-native applications and the whole integration of GitLab and CI/CD makes the whole DevOps lifecycle a breeze. With the newly added feature to include jobs definition from a local definition, a central repository or remote URL, we can finally get rid of all the repetition in our build definitions.\nThanks for the review Markus!\n",
+  "articleBody": "Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I’m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will\nMAKE THE GITLAB-CI.YML DRY AGAIN\nTL;DR As of GitLab CE version 11.7, you can use include commands to include your tasks from other .yml files. This is a big deal, because you don‘t have to repeat your self in each of your projects any more. Especially in projects that consist of a large number of microservices sharing (parts) of the pipeline definition is major win.\nGitLab Even after the acquisition of Github by Microsoft, I still am a big fan and daily visitor of Github to look for new things around in the tech projects of my interest.\nHowever, since approx. 1.5 years I‘m often confronted with GitLab installations at work and customers to serve as the internally hosted git service and I‘m kind of getting more and more to know about the strength of GitLab and the ecosystem around that, which is actually quite impressive. GitLab helps you as a developer to be more productive where it avoiding switches between for example Jenkins for your pipeline and code repository in Gogs.\nIntroduction Writing pipelines in Gitlab CI is quite an easy task when compared to writing Jenkins pipelines, at least for me. To be honest, I’m still trying to hide my Jenkins stuff that is related to private projects. On the other hand, GitLab CI is quite easy to understand and has great documentation where you can start right away without learning any special programming language (e.g. Groovy).\nUsage of Include Tag So the central part of this post is the newly available include tags{:target=\"_blank\"} feature in the Gitlab CE 11.7 version. Using them, you have the possibility to include other CI definitions, therefore allowing you to re-use your jobs from other files outside of your main repository. It is also possible to include remote .yaml files from other organizations. In the following, I will present some practical examples and some personal experience with this new feature.\nIn the following sections we will build the following pipeline:\nDemo project\nShared repo with pipeline job definitions\n1. Include snippets from the same repo to build your pipeline The simplest way to extract your pipeline jobs from the main .gitlab-ci.yml is to move out the job definitions to a separate directory inside the same repo. In the following example, I moved the job definitions to the ci directory.\n. ├── .gitlab-ci.yml ├── ci │ └── local-job.yml The local-job.yml file echos some variable and also demonstrates the functionality to override job definitions that have already been defined in the main gitlab-ci.yml file, here the script and variables keys.\ninclude: - local: '/ci/local-job.yml' variables: OVERRIDE_VAR: \"OVERRIDE VALUE IN CI FILE\" VAR1: \"OVERRIDE VAR 1 FROM CI FILE\" DEBUG: 'TRUE' local-job: script: - echo \"OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI\" - echo $OVERRIDE_VAR # --- OUTPUT OF THE JOB # $ echo \"before_script from 'include-local' task\" # before_script from 'include-local' task # $ echo \"OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI\" # OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI # $ echo $OVERRIDE_VAR # OVERRIDE VALUE IN CI FILE 2. Include a job definition from another repository within the same organization Having some parts of your build in a separate file can help clean up big pipeline definitions, but especially with multiple repositories this is still too much repetition. For this use-case, GitLab also allows you to include from a another repository in the same organization:\ninclude: - project: 'imalik8088/gitlab-ci-pipeline' file: '/maven-package.yml' maven-package: artifacts: paths: - target/gitlab-ci-1.0-SNAPSHOT.jar This includes a file called maven-package.yml from the same GitLab organization but a different repository. Here again, you are able to change the default behavior by overriding the blocks or variables. This job definition will expand the original job definition, where we are defining a project-specific artifact where a .jar by the java application is been used to define it as an artifact in the context of GitLab. This comes in quite handy when you don’t want any defaults but project-specific definition.\n3. Include a job definition from a URL The third and last option we will look at, is to include a job definition file via an arbitrary URL. This is even more powerful than the previous options, because you are free to query any http endpoint that returns the file. Here is an example of that:\ninclude: - remote: 'https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml' build-docker: variables: IMAGE_NAME: gitlab-ci-java dependencies: - maven-package In this job definition, we are building a docker image. You have to define usually some extra code if you want to use docker in your CI (better known as Docker-in-Docker). This ceremony is now hidden inside an external job definition. The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the maven-package job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.\nNotes One thing to note here is, that although you are defining your stages in the remote job definition you have to list all of the stage in the main .gitlab-ci file which defines the order in which jobs will be executed. I have included in the demo project a gitlab ci file from a personal project were its about 125 lines of code and lot of repetitions. We can imagine how this gitlab ci file can benefit from the new feature described in this post and almost every organization have repetitive jobs like build, test, coverage, build docker images, deploy, etc. Conclusion Gitlab and Gitlab CI have been build in the era of cloud-native applications and the whole integration of GitLab and CI/CD makes the whole DevOps lifecycle a breeze. With the newly added feature to include jobs definition from a local definition, a central repository or remote URL, we can finally get rid of all the repetition in our build definitions.\nThanks for the review Markus!\n",
   "wordCount" : "1058",
   "inLanguage": "en",
   "datePublished": "2019-02-04T23:44:02+01:00",
@@ -91,11 +124,6 @@
   }
 }
 </script>
-
-
-
-
-
 </head>
 
 <body class="" id="top">
@@ -109,27 +137,19 @@
     }
 
 </script>
-<noscript>
-    <style type="text/css">
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
 
-    </style>
-</noscript>
 <header class="header">
     <nav class="nav">
         <div class="logo">
             <a href="https://imalik8088.de/" accesskey="h" title="imalik8088 (Alt + H)">imalik8088</a>
-            <span class="logo-switches">
+            <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -143,11 +163,9 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                
-                
-            </span>
+            </div>
         </div>
-        <ul id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu">
             <li>
                 <a href="https://imalik8088.de/about_me/" title="about me">
                     <span>about me</span>
@@ -162,49 +180,57 @@
                 <a href="https://imalik8088.de/tags/" title="tags">
                     <span>tags</span>
                 </a>
-            </li></ul>
+            </li>
+        </ul>
     </nav>
 </header>
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
   <header class="post-header">
-
+    
     <h1 class="post-title">
       Tired of repeated gitlab-ci files? Includes to the rescue!
     </h1>
-    <div class="post-meta">
-
-February 4, 2019&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
+    <div class="post-meta"><span title='2019-02-04 23:44:02 +0100 CET'>February 4, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 
 </div>
-  </header> 
-
-  <div class="toc">
+  </header> <div class="toc">
     <details  open>
-      <summary accesskey="c" title="(Alt + C)">
-        <div class="details">Table of Contents</div>
-      </summary>
-      <div class="inner"><ul><li>
-        <a href="#tldr" aria-label="TL;DR">TL;DR</a></li><li>
-        <a href="#gitlab" aria-label="GitLab">GitLab</a></li><li>
-        <a href="#introduction" aria-label="Introduction">Introduction</a></li><li>
-        <a href="#usage-of-include-tag" aria-label="Usage of Include Tag">Usage of Include Tag</a><ul>
-            <ul>
-            <li>
-        <a href="#1-include-snippets-from-the-same-repo-to-build-your-pipeline" aria-label="1. Include snippets from the same repo to build your pipeline">1. Include snippets from the same repo to build your pipeline</a></li><li>
-        <a href="#2-include-a-job-definition-from-another-repository-within-the-same-organization" aria-label="2. Include a job definition from another repository within the same organization">2. Include a job definition from another repository within the same organization</a></li><li>
-        <a href="#3-include-a-job-definition-from-a-url" aria-label="3. Include a job definition from a URL">3. Include a job definition from a URL</a></li></ul>
-        <li>
-        <a href="#notes" aria-label="Notes">Notes</a></li></ul>
-    </li><li>
-        <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li></ul>
-      </div>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#tldr" aria-label="TL;DR">TL;DR</a></li>
+                <li>
+                    <a href="#gitlab" aria-label="GitLab">GitLab</a></li>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#usage-of-include-tag" aria-label="Usage of Include Tag">Usage of Include Tag</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#1-include-snippets-from-the-same-repo-to-build-your-pipeline" aria-label="1. Include snippets from the same repo to build your pipeline">1. Include snippets from the same repo to build your pipeline</a></li>
+                <li>
+                    <a href="#2-include-a-job-definition-from-another-repository-within-the-same-organization" aria-label="2. Include a job definition from another repository within the same organization">2. Include a job definition from another repository within the same organization</a></li>
+                <li>
+                    <a href="#3-include-a-job-definition-from-a-url" aria-label="3. Include a job definition from a URL">3. Include a job definition from a URL</a></li></ul>
+                    
+                <li>
+                    <a href="#notes" aria-label="Notes">Notes</a></li></ul>
+                </li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a>
+                </li>
+            </ul>
+        </div>
     </details>
-  </div>
-  <div class="post-content">
-<p>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on <a href="https://about.gitlab.com/2019/01/22/gitlab-11-7-released/">22nd January 2019</a>. In this post we will have a look to newly added feature in GitLab CI where we will</p>
+</div>
+
+  <div class="post-content"><p>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on <a href="https://about.gitlab.com/2019/01/22/gitlab-11-7-released/">22nd January 2019</a>. In this post we will have a look to newly added feature in GitLab CI where we will</p>
 <blockquote>
 <p>MAKE THE <code>GITLAB-CI.YML</code> DRY AGAIN</p>
 </blockquote>
@@ -218,62 +244,64 @@ February 4, 2019&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik
 <h1 id="usage-of-include-tag">Usage of Include Tag<a hidden class="anchor" aria-hidden="true" href="#usage-of-include-tag">#</a></h1>
 <p>So the central part of this post is the newly available <a href="https://docs.gitlab.com/ce/ci/yaml/#include"><code>include tags</code></a>{:target=&quot;_blank&quot;} feature in the Gitlab CE 11.7 version.  Using them, you have the possibility to <strong>include</strong> other CI definitions, therefore allowing you to re-use your <code>jobs</code> from other files outside of your main repository. It is also possible to include remote .yaml files from other organizations. In the following, I will present some practical examples and some personal experience with this new feature.</p>
 <p>In the following sections we will build the following pipeline:</p>
-<p><img src="/posts/gilab-ci.002.png#center" alt="pipeline to build in this project"></p>
+<p><img loading="lazy" src="/posts/gilab-ci.002.png#center" alt="pipeline to build in this project"  />
+</p>
 <blockquote>
 <p><a href="https://gitlab.com/imalik8088/gitlab-ci-include-test">Demo project</a><br>
 <a href="https://gitlab.com/imalik8088/gitlab-ci-pipeline">Shared repo with pipeline job definitions</a></p>
 </blockquote>
 <h3 id="1-include-snippets-from-the-same-repo-to-build-your-pipeline">1. Include snippets from the same repo to build your pipeline<a hidden class="anchor" aria-hidden="true" href="#1-include-snippets-from-the-same-repo-to-build-your-pipeline">#</a></h3>
 <p>The simplest way to extract your pipeline jobs from the main <code>.gitlab-ci.yml</code> is to move out the job definitions to a separate directory inside the same repo. In the following example, I moved the job definitions to the <code>ci</code> directory.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">.
-├── .gitlab-ci.yml
-├── ci
-│   └── local-job.yml
-</code></pre></div><p>The <code>local-job.yml</code> file echos some variable and also demonstrates the functionality to override job definitions that have already been defined in the main <code>gitlab-ci.yml</code> file, here the <code>script</code> and <code>variables</code> keys.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
-  - <span style="color:#f92672">local</span>: <span style="color:#e6db74">&#39;/ci/local-job.yml&#39;</span>
-
-<span style="color:#f92672">variables</span>:
-  <span style="color:#f92672">OVERRIDE_VAR</span>: <span style="color:#e6db74">&#34;OVERRIDE VALUE IN CI FILE&#34;</span>
-  <span style="color:#f92672">VAR1</span>: <span style="color:#e6db74">&#34;OVERRIDE VAR 1 FROM CI FILE&#34;</span>
-  <span style="color:#f92672">DEBUG</span>: <span style="color:#e6db74">&#39;TRUE&#39;</span>
-
-<span style="color:#f92672">local-job</span>:
-  <span style="color:#f92672">script</span>:
-    - <span style="color:#ae81ff">echo &#34;OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI&#34;</span>
-    - <span style="color:#ae81ff">echo $OVERRIDE_VAR  </span>
-
-<span style="color:#75715e"># --- OUTPUT OF THE JOB</span>
-<span style="color:#75715e"># $ echo &#34;before_script from &#39;include-local&#39; task&#34;</span>
-<span style="color:#75715e"># before_script from &#39;include-local&#39; task  </span>
-<span style="color:#75715e"># $ echo &#34;OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI&#34;</span>
-<span style="color:#75715e"># OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI  </span>
-<span style="color:#75715e"># $ echo $OVERRIDE_VAR</span>
-<span style="color:#75715e"># OVERRIDE VALUE IN CI FILE</span>
-</code></pre></div><h3 id="2-include-a-job-definition-from-another-repository-within-the-same-organization">2. Include a job definition from another repository within the same organization<a hidden class="anchor" aria-hidden="true" href="#2-include-a-job-definition-from-another-repository-within-the-same-organization">#</a></h3>
-<p><img src="/posts/gilab-ci.001.jpg#center" alt="example setup in microservice organizations"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── .gitlab-ci.yml
+</span></span><span style="display:flex;"><span>├── ci
+</span></span><span style="display:flex;"><span>│   └── local-job.yml
+</span></span></code></pre></div><p>The <code>local-job.yml</code> file echos some variable and also demonstrates the functionality to override job definitions that have already been defined in the main <code>gitlab-ci.yml</code> file, here the <code>script</code> and <code>variables</code> keys.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">local</span>: <span style="color:#e6db74">&#39;/ci/local-job.yml&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">OVERRIDE_VAR</span>: <span style="color:#e6db74">&#34;OVERRIDE VALUE IN CI FILE&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">VAR1</span>: <span style="color:#e6db74">&#34;OVERRIDE VAR 1 FROM CI FILE&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">DEBUG</span>: <span style="color:#e6db74">&#39;TRUE&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">local-job</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">script</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo &#34;OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">echo $OVERRIDE_VAR  </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># --- OUTPUT OF THE JOB</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $ echo &#34;before_script from &#39;include-local&#39; task&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># before_script from &#39;include-local&#39; task  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $ echo &#34;OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># OVERRIDE FROM SCRIPT BLOCK OF MAIN GITLAB CI  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># $ echo $OVERRIDE_VAR</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># OVERRIDE VALUE IN CI FILE</span>
+</span></span></code></pre></div><h3 id="2-include-a-job-definition-from-another-repository-within-the-same-organization">2. Include a job definition from another repository within the same organization<a hidden class="anchor" aria-hidden="true" href="#2-include-a-job-definition-from-another-repository-within-the-same-organization">#</a></h3>
+<p><img loading="lazy" src="/posts/gilab-ci.001.jpg#center" alt="example setup in microservice organizations"  />
+</p>
 <p>Having some parts of your build in a separate file can help clean up big pipeline definitions, but especially with multiple repositories this is still too much repetition.  For this use-case, GitLab also allows you to include from a another repository in the same organization:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
-  - <span style="color:#f92672">project</span>: <span style="color:#e6db74">&#39;imalik8088/gitlab-ci-pipeline&#39;</span>
-  <span style="color:#f92672">file</span>: <span style="color:#e6db74">&#39;/maven-package.yml&#39;</span>
-
-<span style="color:#f92672">maven-package</span>:
-  <span style="color:#f92672">artifacts</span>:
-    <span style="color:#f92672">paths</span>:
-      - <span style="color:#ae81ff">target/gitlab-ci-1.0-SNAPSHOT.jar  </span>
-</code></pre></div><p>This includes a file called <code>maven-package.yml</code> from the same GitLab organization but a <strong>different</strong> repository. Here again, you are able to change the default behavior by overriding the blocks or variables. This job definition will <strong>expand</strong> the original job definition, where we are defining a project-specific artifact where a .jar by the java application is been used to define it as an artifact in the context of GitLab. This comes in quite handy when you don&rsquo;t want any defaults but project-specific definition.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">project</span>: <span style="color:#e6db74">&#39;imalik8088/gitlab-ci-pipeline&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">file</span>: <span style="color:#e6db74">&#39;/maven-package.yml&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">maven-package</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">artifacts</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">target/gitlab-ci-1.0-SNAPSHOT.jar  </span>
+</span></span></code></pre></div><p>This includes a file called <code>maven-package.yml</code> from the same GitLab organization but a <strong>different</strong> repository. Here again, you are able to change the default behavior by overriding the blocks or variables. This job definition will <strong>expand</strong> the original job definition, where we are defining a project-specific artifact where a .jar by the java application is been used to define it as an artifact in the context of GitLab. This comes in quite handy when you don&rsquo;t want any defaults but project-specific definition.</p>
 <h3 id="3-include-a-job-definition-from-a-url">3. Include a job definition from a URL<a hidden class="anchor" aria-hidden="true" href="#3-include-a-job-definition-from-a-url">#</a></h3>
 <p>The third and last option we will look at, is to include a job definition file via an arbitrary URL.  This is even more powerful than the previous options, because you are free to query any http endpoint that returns the file.
 Here is an example of that:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">include</span>:
-  - <span style="color:#f92672">remote</span>: <span style="color:#e6db74">&#39;https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml&#39;</span>
-
-<span style="color:#f92672">build-docker</span>:
-  <span style="color:#f92672">variables</span>:
-    <span style="color:#f92672">IMAGE_NAME</span>: <span style="color:#ae81ff">gitlab-ci-java</span>
-  <span style="color:#f92672">dependencies</span>:
-    - <span style="color:#ae81ff">maven-package</span>
-</code></pre></div><p>In this job definition, we are building a docker image. You have to define usually some extra code if you want to use docker in your CI (better known as Docker-in-Docker). This ceremony is now hidden inside an external job definition.  The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the <code>maven-package</code> job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">include</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">remote</span>: <span style="color:#e6db74">&#39;https://gitlab.com/imalik8088/gitlab-ci-pipeline/raw/master/build-docker.yml&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">build-docker</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">IMAGE_NAME</span>: <span style="color:#ae81ff">gitlab-ci-java</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependencies</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">maven-package</span>
+</span></span></code></pre></div><p>In this job definition, we are building a docker image. You have to define usually some extra code if you want to use docker in your CI (better known as Docker-in-Docker). This ceremony is now hidden inside an external job definition.  The main steps can still be overridden which leads to more concise pipelines where the boilerplate can be hidden behind the scenes. In this example, we are depending on the <code>maven-package</code> job where the artifact is transferred to this job definition and is used to build the docker image including the compile, test .jar from a previous stage.</p>
 <h2 id="notes">Notes<a hidden class="anchor" aria-hidden="true" href="#notes">#</a></h2>
 <ul>
 <li>One thing to note here is, that although you are defining your stages in the remote job definition you have to list all of the stage in the main .gitlab-ci file which defines the order in which jobs will be executed.</li>
@@ -283,89 +311,91 @@ Here is an example of that:</p>
 <p>Gitlab and Gitlab CI have been build in the era of cloud-native applications and the whole integration of GitLab and CI/CD makes the whole DevOps lifecycle a breeze. With the newly added feature to include jobs definition from a local definition, a central repository or remote URL, we can finally get rid of all the repetition in our build definitions.</p>
 <p><em>Thanks for the review <a href="https://twitter.com/markus1189">Markus</a>!</em></p>
 
-</div>
+
+  </div>
+
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://imalik8088.de/tags/gitlab-ci/">gitlab-ci</a></li>
     </ul>
 
-
-
-
-
-
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on twitter"
         href="https://twitter.com/intent/tweet/?text=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21&amp;url=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f&amp;hashtags=gitlab-ci">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
         </svg>
     </a>
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on linkedin"
         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f&amp;title=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21&amp;summary=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21&amp;source=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
         </svg>
     </a>
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on reddit"
         href="https://reddit.com/submit?url=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f&title=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
         </svg>
     </a>
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on facebook"
         href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
         </svg>
     </a>
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on whatsapp"
         href="https://api.whatsapp.com/send?text=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21%20-%20https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f">
-        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
         </svg>
     </a>
     <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on telegram"
         href="https://telegram.me/share/url?text=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21&amp;url=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f">
-        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
             <path
                 d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Tired of repeated gitlab-ci files? Includes to the rescue! on ycombinator"
+        href="https://news.ycombinator.com/submitlink?t=Tired%20of%20repeated%20gitlab-ci%20files%3f%20Includes%20to%20the%20rescue%21&u=https%3a%2f%2fimalik8088.de%2fposts%2fgitlab-ci-include%2f">
+        <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+            <path
+                d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
         </svg>
     </a>
 </div>
 
   </footer>
-
-
 </article>
-    </main><footer class="footer">
-    <span>&copy; 2022 <a href="https://imalik8088.de/">imalik8088</a></span>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="https://imalik8088.de/">imalik8088</a></span>
     <span>&middot;</span>
     <span><a href="/imprint" rel="noopener noreferrer">imprint</a></span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
-    <button class="top-link" id="top-link" type="button" accesskey="g">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-            <path d="M12 6H0l6-6z" />
-        </svg>
-    </button>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
 </a>
 
-
-
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
-    onload="hljs.initHighlightingOnLoad();"></script>
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
     }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -384,6 +414,9 @@ Here is an example of that:</p>
             }
         });
     });
+
+</script>
+<script>
     var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -394,10 +427,6 @@ Here is an example of that:</p>
             mybutton.style.opacity = "0";
         }
     };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
 
 </script>
 <script>
@@ -412,7 +441,6 @@ Here is an example of that:</p>
     })
 
 </script>
-
 </body>
 
 </html>
