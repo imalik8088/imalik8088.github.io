@@ -6,7 +6,34 @@
     <description>Recent content in Tags on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jan 2022 09:00:00 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apache flink</title>
+      <link>https://imalik8088.de/tags/apache-flink/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/apache-flink/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://imalik8088.de/tags/kubernetes/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>savepoints</title>
+      <link>https://imalik8088.de/tags/savepoints/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/savepoints/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kafka</title>
       <link>https://imalik8088.de/tags/kafka/</link>
@@ -22,15 +49,6 @@
       <pubDate>Wed, 26 Jan 2022 09:00:00 +0100</pubDate>
       
       <guid>https://imalik8088.de/tags/mirror-maker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>apache flink</title>
-      <link>https://imalik8088.de/tags/apache-flink/</link>
-      <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
-      
-      <guid>https://imalik8088.de/tags/apache-flink/</guid>
       <description></description>
     </item>
     

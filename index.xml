@@ -6,7 +6,16 @@
     <description>Recent content on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Jan 2022 09:00:00 +0100</lastBuildDate><atom:link href="https://imalik8088.de/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://imalik8088.de/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automating savepoints in Apache Flink </title>
+      <link>https://imalik8088.de/posts/automate_flink_savepointing/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/posts/automate_flink_savepointing/</guid>
+      <description>In a stateful streaming application the state of an application is one of the most important part. In Apache Flink we have the possibility to kind of backup the state with a so called savepointing mechanism. From these savepoints you as a developer or operations manager are able to stop-and-resume, fork, or update your Flink jobs (more to read about savepoints in the docs). So it&amp;rsquo;s a great possibility to try out different implementations of a fork for a Flink application.</description>
+    </item>
+    
     <item>
       <title>Kafka, where are all my messages 😱?</title>
       <link>https://imalik8088.de/posts/kafka_where_are_all_my_messages/</link>
