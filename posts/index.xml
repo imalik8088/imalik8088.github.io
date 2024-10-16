@@ -6,7 +6,17 @@
     <description>Recent content in Posts on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://imalik8088.de/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Supercharge Your Kubernetes Deployments: automated endpoint testing with K6 and Helm Hooks</title>
+      <link>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</link>
+      <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</guid>
+      <description>As Kubernetes has become the standard for deploying and managing containerized applications, testing has also adapted to this environment. Ensuring the reliability and performance of your application’s endpoints is crucial, especially in cloud-native deployments. A powerful combination to achieve this is using K6 for load and performance testing and Helm with its helm test hooks to integrate testing into the Kubernetes deployment lifecycle.
+In this blog post, we’ll explore how you can use K6 for endpoint testing within Kubernetes using Helm’s test hooks.</description>
+    </item>
+    
     <item>
       <title>Automating savepoints in Apache Flink </title>
       <link>https://imalik8088.de/posts/automate_flink_savepointing/</link>

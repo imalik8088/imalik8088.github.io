@@ -6,22 +6,49 @@
     <description>Recent content in Tags on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Oct 2023 00:00:00 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>apache flink</title>
-      <link>https://imalik8088.de/tags/apache-flink/</link>
-      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      <title>helm</title>
+      <link>https://imalik8088.de/tags/helm/</link>
+      <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
       
-      <guid>https://imalik8088.de/tags/apache-flink/</guid>
+      <guid>https://imalik8088.de/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k6</title>
+      <link>https://imalik8088.de/tags/k6/</link>
+      <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/k6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
       <link>https://imalik8088.de/tags/kubernetes/</link>
-      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
       
       <guid>https://imalik8088.de/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://imalik8088.de/tags/testing/</link>
+      <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>apache flink</title>
+      <link>https://imalik8088.de/tags/apache-flink/</link>
+      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
+      
+      <guid>https://imalik8088.de/tags/apache-flink/</guid>
       <description></description>
     </item>
     

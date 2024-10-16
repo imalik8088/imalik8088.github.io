@@ -147,77 +147,23 @@
 </header>
 
 <article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?q=80&amp;w=4469&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-</figure>
   <header class="entry-header">
-    <h2>Supercharge Your Kubernetes Deployments: automated endpoint testing with K6 and Helm Hooks
+    <h2>ETL with Kafka
     </h2>
   </header>
   <div class="entry-content">
-    <p>As Kubernetes has become the standard for deploying and managing containerized applications, testing has also adapted to this environment. Ensuring the reliability and performance of your application’s endpoints is crucial, especially in cloud-native deployments. A powerful combination to achieve this is using K6 for load and performance testing and Helm with its helm test hooks to integrate testing into the Kubernetes deployment lifecycle.
-In this blog post, we’ll explore how you can use K6 for endpoint testing within Kubernetes using Helm’s test hooks....</p>
+    <p>Originally published at codecentrics blog
+“ETL with Kafka” is a catchy phrase that I purposely chose for this post instead of a more precise title like “Building a data pipeline with Kafka Connect”.
+TLDR You don’t need to write any code for pushing data into Kafka, instead just choose your connector and start the job with your necessary configurations. And it’s absolutely Open Source!
+Kafka Connect Kafka Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines....</p>
   </div>
-  <footer class="entry-footer"><span title='2024-10-14 23:04:54 +0200 +0200'>October 14, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Akhlaq Malik</footer>
-  <a class="entry-link" aria-label="post link to Supercharge Your Kubernetes Deployments: automated endpoint testing with K6 and Helm Hooks" href="https://imalik8088.de/posts/automated-endpoint-testing-with-k6/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1605738862138-6704bedb5202?auto=format&amp;fit=crop&amp;q=80&amp;w=870&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Automating savepoints in Apache Flink 
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>In a stateful streaming application the state of an application is one of the most important part. In Apache Flink we have the possibility to kind of backup the state with a so called savepointing mechanism. From these savepoints you as a developer or operations manager are able to stop-and-resume, fork, or update your Flink jobs (more to read about savepoints in the docs). So it’s a great possibility to try out different implementations of a fork for a Flink application....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-10-18 00:00:00 +0200 +0200'>October 18, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Akhlaq Malik</footer>
-  <a class="entry-link" aria-label="post link to Automating savepoints in Apache Flink " href="https://imalik8088.de/posts/automate_flink_savepointing/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover"><img loading="lazy" src="https://images.unsplash.com/photo-1564648351416-3eec9f3e85de?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="">
-</figure>
-  <header class="entry-header">
-    <h2>Kafka, where are all my messages 😱?
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Recently I got the chance to help a customer moving from a Helm based deployment of Apache Kafka in Kubernetes to the Strimzi, which manages the deployment of Kafka in Kubernetes with an operator. In the final phase, I had to transfer the data to the newly deployed Apache Kafka.
-Setting the scope The customer is using compacted topics (cleanup.policy=compact and log.rentention.ms=-1) as the default configuration for all topics in Apache Kafka, so they’re using it somehow like a database where messages are produced with an unique ID and are nulled afterwards when it is required to delete a message....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-01-26 09:00:00 +0100 +0100'>January 26, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik</footer>
-  <a class="entry-link" aria-label="post link to Kafka, where are all my messages 😱?" href="https://imalik8088.de/posts/kafka_where_are_all_my_messages/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Apache Flink Continuous Deployment
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.
-Apache Flink on the other hand has the freedom to choose from a variety of source systems, e....</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-03-30 09:00:00 +0100 +0100'>March 30, 2021</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik</footer>
-  <a class="entry-link" aria-label="post link to Apache Flink Continuous Deployment" href="https://imalik8088.de/posts/apache-flink-continuous-deployment/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Tired of repeated gitlab-ci files? Includes to the rescue!
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I’m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
-MAKE THE GITLAB-CI.YML DRY AGAIN...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-02-04 23:44:02 +0100 +0100'>February 4, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik</footer>
-  <a class="entry-link" aria-label="post link to Tired of repeated gitlab-ci files? Includes to the rescue!" href="https://imalik8088.de/posts/gitlab-ci-include/"></a>
+  <footer class="entry-footer"><span title='2018-02-02 23:08:25 +0100 +0100'>February 2, 2018</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Akhlaq Malik</footer>
+  <a class="entry-link" aria-label="post link to ETL with Kafka" href="https://imalik8088.de/posts/etl-with-kafka/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
-    <a class="next" href="https://imalik8088.de/posts/page/2/">Next&nbsp;&nbsp;»
+    <a class="prev" href="https://imalik8088.de/posts/">
+      «&nbsp;Prev&nbsp;
     </a>
   </nav>
 </footer>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kubernetes on imalik8088</title>
-    <link>https://imalik8088.de/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on imalik8088</description>
+    <title>testing on imalik8088</title>
+    <link>https://imalik8088.de/tags/testing/</link>
+    <description>Recent content in testing on imalik8088</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/testing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supercharge Your Kubernetes Deployments: automated endpoint testing with K6 and Helm Hooks</title>
       <link>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</link>
@@ -15,15 +15,6 @@
       <guid>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</guid>
       <description>As Kubernetes has become the standard for deploying and managing containerized applications, testing has also adapted to this environment. Ensuring the reliability and performance of your application’s endpoints is crucial, especially in cloud-native deployments. A powerful combination to achieve this is using K6 for load and performance testing and Helm with its helm test hooks to integrate testing into the Kubernetes deployment lifecycle.
 In this blog post, we’ll explore how you can use K6 for endpoint testing within Kubernetes using Helm’s test hooks.</description>
-    </item>
-    
-    <item>
-      <title>Automating savepoints in Apache Flink </title>
-      <link>https://imalik8088.de/posts/automate_flink_savepointing/</link>
-      <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
-      
-      <guid>https://imalik8088.de/posts/automate_flink_savepointing/</guid>
-      <description>In a stateful streaming application the state of an application is one of the most important part. In Apache Flink we have the possibility to kind of backup the state with a so called savepointing mechanism. From these savepoints you as a developer or operations manager are able to stop-and-resume, fork, or update your Flink jobs (more to read about savepoints in the docs). So it&amp;rsquo;s a great possibility to try out different implementations of a fork for a Flink application.</description>
     </item>
     
   </channel>
