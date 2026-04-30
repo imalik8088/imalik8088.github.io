@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="en" dir="auto" data-theme="auto">
 
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,7 @@
 <meta name="description" content="about_me">
 <meta name="author" content="Akhlaq Malik">
 <link rel="canonical" href="https://imalik8088.de/about_me/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.83e70b8409491596b24bfce6a7f2c88e797beb91412e324e09c7a7dfc2cd07a8.css" integrity="sha256-g&#43;cLhAlJFZayS/zmp/LIjnl765FBLjJOCcen38LNB6g=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
+<link crossorigin="anonymous" href="/assets/css/stylesheet.35687087c1094e1e96fc3f4da04b26904d59f41b6d1f2debf4c483a7ad10e9c3.css" integrity="sha256-NWhwh8EJTh6W/D9NoEsmkE1Z9BttHy3r9MSDp60Q6cM=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://imalik8088.de/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://imalik8088.de/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://imalik8088.de/favicon-32x32.png">
@@ -20,6 +18,7 @@
 <link rel="mask-icon" href="https://imalik8088.de/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://imalik8088.de/about_me/">
 <noscript>
     <style>
         #theme-toggle,
@@ -37,35 +36,44 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
+                color-scheme: dark;
             }
 
             .list {
                 background: var(--theme);
             }
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+            .toc {
+                background: var(--entry);
             }
         }
 
     </style>
-</noscript><meta property="og:title" content="Akhlaq Malik" />
-<meta property="og:description" content="about_me" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://imalik8088.de/about_me/" /><meta property="article:section" content="" />
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
 
-<meta property="og:site_name" content="imalik8088" />
+</script><meta property="og:url" content="https://imalik8088.de/about_me/">
+  <meta property="og:site_name" content="imalik8088">
+  <meta property="og:title" content="Akhlaq Malik">
+  <meta property="og:description" content="about_me">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Akhlaq Malik"/>
-<meta name="twitter:description" content="about_me"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Akhlaq Malik">
+  <meta name="twitter:description" content="about_me">
 
 
 <script type="application/ld+json">
@@ -116,31 +124,19 @@
 }
 </script>
 </head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
         <div class="logo">
             <a href="https://imalik8088.de/" accesskey="h" title="imalik8088 (Alt + H)">imalik8088</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -156,7 +152,7 @@
                 </button>
             </div>
         </div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
             <li>
                 <a href="https://imalik8088.de/about_me/" title="about me">
                     <span class="active">about me</span>
@@ -180,11 +176,11 @@
 <article class="post-single">
   <header class="post-header">
     
-    <h1 class="post-title">
+    <h1 class="post-title entry-hint-parent">
       Akhlaq Malik
     </h1>
   </header> 
-  <div class="post-content"><p>Hey, I&rsquo;m Akhlaq — an independent IT-Consultant based in Darmstadt, Germany. I&rsquo;ve been working in software engineering and architecture since 2011, and since 2018 I run my own consultancy <a href="https://www.imalik8088.de">imalik8088</a>.</p>
+  <div class="post-content md-content"><p>Hey, I&rsquo;m Akhlaq — an independent IT-Consultant based in Darmstadt, Germany. I&rsquo;ve been working in software engineering and architecture since 2011, and since 2018 I run my own consultancy <a href="https://www.imalik8088.de">imalik8088</a>.</p>
 <p>My sweet spot is the intersection of <strong>data engineering</strong>, <strong>streaming architectures</strong>, and <strong>cloud-native infrastructure</strong>. I help teams build reliable, scalable systems — from real-time Kafka pipelines to Kubernetes-based platforms — and I care a lot about doing it cleanly.</p>
 <h2 id="what-i-do">What I do<a hidden class="anchor" aria-hidden="true" href="#what-i-do">#</a></h2>
 <p>Most of my work revolves around:</p>
@@ -198,7 +194,7 @@
 <h2 id="outside-of-work">Outside of work<a hidden class="anchor" aria-hidden="true" href="#outside-of-work">#</a></h2>
 <p>When I&rsquo;m not in front of a terminal, I&rsquo;m usually doing something active. Sports keep me sane.</p>
 <hr>
-<p>Want to get in touch? <a href="https://mailxto.com/yd70q1">Drop me a message 👋</a></p>
+<p>Want to get in touch? <a href="https://mailxto.com/yd70q1">Drop me a message &#x1f44b;</a></p>
 
 
   </div>
@@ -211,20 +207,27 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2026 <a href="https://imalik8088.de/">imalik8088</a></span>
-    <span>&middot;</span>
+        <span>&copy; 2026 <a href="https://imalik8088.de/">imalik8088</a></span> · 
+
     <span><a href="/imprint" rel="noopener noreferrer">imprint</a></span>
 </footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
     </svg>
 </a><script data-goatcounter="https://imalik8088.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script id="dsq-count-scr" src="//imalik8088-de.disqus.com/count.js" async></script>
 
 <script>
-    let menu = document.getElementById('menu')
+    let menu = document.getElementById('menu');
     if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
         menu.onscroll = function () {
             localStorage.setItem("menu-scroll-position", menu.scrollLeft);
         }
@@ -251,25 +254,25 @@
 
 </script>
 <script>
-    var mybutton = document.getElementById("top-link");
+    var toplink = document.getElementById("top-link");
     window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
         } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
+            toplink.classList.add("hidden");
         }
     };
 
 </script>
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
             localStorage.setItem("pref-theme", 'light');
         } else {
-            document.body.classList.add('dark');
+            html.dataset.theme = 'dark';
             localStorage.setItem("pref-theme", 'dark');
         }
     })

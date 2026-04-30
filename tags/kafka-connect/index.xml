@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kafka-connect on imalik8088</title>
+    <title>Kafka-Connect on imalik8088</title>
     <link>https://imalik8088.de/tags/kafka-connect/</link>
-    <description>Recent content in kafka-connect on imalik8088</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Kafka-Connect on imalik8088</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Feb 2018 23:08:25 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/kafka-connect/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Feb 2018 23:08:25 +0100</lastBuildDate>
+    <atom:link href="https://imalik8088.de/tags/kafka-connect/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ETL with Kafka</title>
       <link>https://imalik8088.de/posts/etl-with-kafka/</link>
       <pubDate>Fri, 02 Feb 2018 23:08:25 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/etl-with-kafka/</guid>
-      <description>Originally published at codecentrics blog
-&amp;ldquo;ETL with Kafka&amp;rdquo; is a catchy phrase that I purposely chose for this post instead of a more precise title like &amp;ldquo;Building a data pipeline with Kafka Connect&amp;rdquo;.
-TLDR You don’t need to write any code for pushing data into Kafka, instead just choose your connector and start the job with your necessary configurations. And it’s absolutely Open Source!
-Kafka Connect Kafka Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines.</description>
+      <description>&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://blog.codecentric.de/en/2018/03/etl-kafka/&#34;&gt;Originally published&lt;/a&gt; at codecentrics blog&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;ETL with Kafka&amp;rdquo; is a catchy phrase that I purposely chose for this post instead of a more precise title like &amp;ldquo;Building a data pipeline with Kafka Connect&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TLDR&lt;/h2&gt;
+&lt;p&gt;You don’t need to write any code for pushing data into Kafka, instead just choose your &lt;a href=&#34;https://www.confluent.io/product/connectors/&#34;&gt;connector&lt;/a&gt; and start the job with your necessary configurations. And it’s absolutely Open Source!&lt;/p&gt;
+&lt;h2 id=&#34;kafka-connect&#34;&gt;Kafka Connect&lt;/h2&gt;
+&lt;h3 id=&#34;kafka&#34;&gt;Kafka&lt;/h3&gt;
+&lt;p&gt;Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines. Apache Kafka was built at LinkedIn to meet the requirements that message brokers already existing in the market did not meet – requirements such as scalable, distributed, resilient with low latency and high throughput. Currently, i.e. 2018, LinkedIn is processing about 1.8 petabytes of data per day through Kafka. Kafka offers a programmable interface (API) for a lot of languages to produce and consume data.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

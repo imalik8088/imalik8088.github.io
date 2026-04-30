@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>continuous delivery on imalik8088</title>
+    <title>Continuous Delivery on imalik8088</title>
     <link>https://imalik8088.de/tags/continuous-delivery/</link>
-    <description>Recent content in continuous delivery on imalik8088</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Continuous Delivery on imalik8088</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Mar 2021 09:00:00 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 09:00:00 +0100</lastBuildDate>
+    <atom:link href="https://imalik8088.de/tags/continuous-delivery/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apache Flink Continuous Deployment</title>
       <link>https://imalik8088.de/posts/apache-flink-continuous-deployment/</link>
       <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/apache-flink-continuous-deployment/</guid>
-      <description>Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.
-Apache Flink on the other hand has the freedom to choose from a variety of source systems, e.</description>
+      <description>&lt;p&gt;Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.&lt;/p&gt;
+&lt;p&gt;Apache Flink on the other hand has the freedom to choose from a variety of source systems, e.g. Kafka, Pulsar, RabbitMQ and many &lt;a href=&#34;https://ci.apache.org/projects/flink/flink-docs-release-1.12/dev/connectors/&#34; title=&#34;Apache Flink connectors&#34;&gt;other sources&lt;/a&gt; to consume and build the streaming application. Therefore it could not rely on changelog topics as Kafka-Streams does. Apache Flink offers out of the box following State Backends for stateful streaming processing:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

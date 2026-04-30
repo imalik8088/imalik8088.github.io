@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>gitlab-ci on imalik8088</title>
+    <title>Gitlab-Ci on imalik8088</title>
     <link>https://imalik8088.de/tags/gitlab-ci/</link>
-    <description>Recent content in gitlab-ci on imalik8088</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Gitlab-Ci on imalik8088</description>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Feb 2019 23:44:02 +0100</lastBuildDate><atom:link href="https://imalik8088.de/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Feb 2019 23:44:02 +0100</lastBuildDate>
+    <atom:link href="https://imalik8088.de/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tired of repeated gitlab-ci files? Includes to the rescue!</title>
       <link>https://imalik8088.de/posts/gitlab-ci-include/</link>
       <pubDate>Mon, 04 Feb 2019 23:44:02 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/gitlab-ci-include/</guid>
-      <description>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&amp;rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
-MAKE THE GITLAB-CI.YML DRY AGAIN</description>
+      <description>&lt;p&gt;Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&amp;rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on &lt;a href=&#34;https://about.gitlab.com/2019/01/22/gitlab-11-7-released/&#34;&gt;22nd January 2019&lt;/a&gt;. In this post we will have a look to newly added feature in GitLab CI where we will&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MAKE THE &lt;code&gt;GITLAB-CI.YML&lt;/code&gt; DRY AGAIN&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;As of GitLab CE version 11.7, you can use include commands to include your tasks from other .yml files.  This is a big deal, because you don‘t have to repeat your self in each of your projects any more.  Especially in projects that consist of a large number of microservices sharing (parts) of the pipeline definition is major win.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

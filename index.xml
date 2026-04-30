@@ -4,88 +4,83 @@
     <title>imalik8088</title>
     <link>https://imalik8088.de/</link>
     <description>Recent content on imalik8088</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate>
+    <atom:link href="https://imalik8088.de/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Supercharge Your Kubernetes Deployments: automated endpoint testing with K6 and Helm Hooks</title>
       <link>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</link>
       <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
-      
       <guid>https://imalik8088.de/posts/automated-endpoint-testing-with-k6/</guid>
-      <description>As Kubernetes has become the standard for deploying and managing containerized applications, testing has also adapted to this environment. Ensuring the reliability and performance of your application’s endpoints is crucial, especially in cloud-native deployments. A powerful combination to achieve this is using K6 for load and performance testing and Helm with its helm test hooks to integrate testing into the Kubernetes deployment lifecycle.
-In this blog post, we’ll explore how you can use K6 for endpoint testing within Kubernetes using Helm’s test hooks.</description>
+      <description>&lt;p&gt;As Kubernetes has become the standard for deploying and managing containerized applications, testing has also adapted to this environment. Ensuring the reliability and performance of your application’s endpoints is crucial, especially in cloud-native deployments. A powerful combination to achieve this is using K6 for load and performance testing and Helm with its helm test hooks to integrate testing into the Kubernetes deployment lifecycle.&lt;/p&gt;
+&lt;p&gt;In this blog post, we’ll explore how you can use K6 for endpoint testing within Kubernetes using Helm’s test hooks. This setup allows you to test your application right after it has been deployed in your Kubernetes cluster, ensuring everything is running as expected before marking the deployment as successful.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Automating savepoints in Apache Flink </title>
       <link>https://imalik8088.de/posts/automate_flink_savepointing/</link>
       <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
-      
       <guid>https://imalik8088.de/posts/automate_flink_savepointing/</guid>
-      <description>In a stateful streaming application the state of an application is one of the most important part. In Apache Flink we have the possibility to kind of backup the state with a so called savepointing mechanism. From these savepoints you as a developer or operations manager are able to stop-and-resume, fork, or update your Flink jobs (more to read about savepoints in the docs). So it&amp;rsquo;s a great possibility to try out different implementations of a fork for a Flink application.</description>
+      <description>&lt;p&gt;In a stateful streaming application the state of an application is one of the most important part.
+In Apache Flink we have the possibility to kind of backup the state with a so called savepointing mechanism.
+From these savepoints you as a developer or operations manager are able to stop-and-resume, fork, or update your Flink jobs (&lt;a href=&#34;https://nightlies.apache.org/flink/flink-docs-release-1.17/docs/ops/state/savepoints/#what-is-a-savepoint&#34;&gt;more to read about savepoints in the docs&lt;/a&gt;).
+So it&amp;rsquo;s a great possibility to try out different implementations of a fork for a Flink application.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kafka, where are all my messages 😱?</title>
       <link>https://imalik8088.de/posts/kafka_where_are_all_my_messages/</link>
       <pubDate>Wed, 26 Jan 2022 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/kafka_where_are_all_my_messages/</guid>
-      <description>Recently I got the chance to help a customer moving from a Helm based deployment of Apache Kafka in Kubernetes to the Strimzi, which manages the deployment of Kafka in Kubernetes with an operator. In the final phase, I had to transfer the data to the newly deployed Apache Kafka.
-Setting the scope The customer is using compacted topics (cleanup.policy=compact and log.rentention.ms=-1) as the default configuration for all topics in Apache Kafka, so they&amp;rsquo;re using it somehow like a database where messages are produced with an unique ID and are nulled afterwards when it is required to delete a message.</description>
+      <description>&lt;p&gt;Recently I got the chance to help a customer moving from a Helm based deployment of Apache Kafka in Kubernetes to the Strimzi, which manages the deployment of Kafka in Kubernetes with an operator. In the final phase, I had to transfer the data to the newly deployed Apache Kafka.&lt;/p&gt;
+&lt;h2 id=&#34;setting-the-scope&#34;&gt;Setting the scope&lt;/h2&gt;
+&lt;p&gt;The customer is using compacted topics (&lt;code&gt;cleanup.policy=compact&lt;/code&gt; and &lt;code&gt;log.rentention.ms=-1&lt;/code&gt;) as the default configuration for all topics in Apache Kafka, so they&amp;rsquo;re using it somehow like a database where messages are produced with an unique ID and are nulled afterwards when it is required to delete a message.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Apache Flink Continuous Deployment</title>
       <link>https://imalik8088.de/posts/apache-flink-continuous-deployment/</link>
       <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/apache-flink-continuous-deployment/</guid>
-      <description>Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.
-Apache Flink on the other hand has the freedom to choose from a variety of source systems, e.</description>
+      <description>&lt;p&gt;Coming from Kafka-Streams continuous delivery (CD) is quite an easy task, and almost no effort has to be done compared to Apache Flink. Because the state of a Kafka-Streams application is stored in Kafka, and it can build up the state after a redeployment from so-called changelog topics, therefore Kafka-Streams is also bounded to have source and sink to Apache Kafka.&lt;/p&gt;
+&lt;p&gt;Apache Flink on the other hand has the freedom to choose from a variety of source systems, e.g. Kafka, Pulsar, RabbitMQ and many &lt;a href=&#34;https://ci.apache.org/projects/flink/flink-docs-release-1.12/dev/connectors/&#34; title=&#34;Apache Flink connectors&#34;&gt;other sources&lt;/a&gt; to consume and build the streaming application. Therefore it could not rely on changelog topics as Kafka-Streams does. Apache Flink offers out of the box following State Backends for stateful streaming processing:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Tired of repeated gitlab-ci files? Includes to the rescue!</title>
       <link>https://imalik8088.de/posts/gitlab-ci-include/</link>
       <pubDate>Mon, 04 Feb 2019 23:44:02 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/gitlab-ci-include/</guid>
-      <description>Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&amp;rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on 22nd January 2019. In this post we will have a look to newly added feature in GitLab CI where we will
-MAKE THE GITLAB-CI.YML DRY AGAIN</description>
+      <description>&lt;p&gt;Building pipelines aka Continuous Integration and Continuous Delivery (CI/CD) are not really new buzzwords in the tech industry or as sexy as bitcoin and friends, but I&amp;rsquo;m still quite excited about the recent release of the GitLab CE 11.7 Version which was released on &lt;a href=&#34;https://about.gitlab.com/2019/01/22/gitlab-11-7-released/&#34;&gt;22nd January 2019&lt;/a&gt;. In this post we will have a look to newly added feature in GitLab CI where we will&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;MAKE THE &lt;code&gt;GITLAB-CI.YML&lt;/code&gt; DRY AGAIN&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;As of GitLab CE version 11.7, you can use include commands to include your tasks from other .yml files.  This is a big deal, because you don‘t have to repeat your self in each of your projects any more.  Especially in projects that consist of a large number of microservices sharing (parts) of the pipeline definition is major win.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>ETL with Kafka</title>
       <link>https://imalik8088.de/posts/etl-with-kafka/</link>
       <pubDate>Fri, 02 Feb 2018 23:08:25 +0100</pubDate>
-      
       <guid>https://imalik8088.de/posts/etl-with-kafka/</guid>
-      <description>Originally published at codecentrics blog
-&amp;ldquo;ETL with Kafka&amp;rdquo; is a catchy phrase that I purposely chose for this post instead of a more precise title like &amp;ldquo;Building a data pipeline with Kafka Connect&amp;rdquo;.
-TLDR You don’t need to write any code for pushing data into Kafka, instead just choose your connector and start the job with your necessary configurations. And it’s absolutely Open Source!
-Kafka Connect Kafka Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines.</description>
+      <description>&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://blog.codecentric.de/en/2018/03/etl-kafka/&#34;&gt;Originally published&lt;/a&gt; at codecentrics blog&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;ETL with Kafka&amp;rdquo; is a catchy phrase that I purposely chose for this post instead of a more precise title like &amp;ldquo;Building a data pipeline with Kafka Connect&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TLDR&lt;/h2&gt;
+&lt;p&gt;You don’t need to write any code for pushing data into Kafka, instead just choose your &lt;a href=&#34;https://www.confluent.io/product/connectors/&#34;&gt;connector&lt;/a&gt; and start the job with your necessary configurations. And it’s absolutely Open Source!&lt;/p&gt;
+&lt;h2 id=&#34;kafka-connect&#34;&gt;Kafka Connect&lt;/h2&gt;
+&lt;h3 id=&#34;kafka&#34;&gt;Kafka&lt;/h3&gt;
+&lt;p&gt;Before getting into the Kafka Connect framework, let us briefly sum up what Apache Kafka is in couple of lines. Apache Kafka was built at LinkedIn to meet the requirements that message brokers already existing in the market did not meet – requirements such as scalable, distributed, resilient with low latency and high throughput. Currently, i.e. 2018, LinkedIn is processing about 1.8 petabytes of data per day through Kafka. Kafka offers a programmable interface (API) for a lot of languages to produce and consume data.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Akhlaq Malik</title>
       <link>https://imalik8088.de/about_me/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://imalik8088.de/about_me/</guid>
       <description>about_me</description>
     </item>
-    
-    
     <item>
       <title>Imprint</title>
       <link>https://imalik8088.de/imprint/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://imalik8088.de/imprint/</guid>
       <description>imprint</description>
     </item>
-    
   </channel>
 </rss>

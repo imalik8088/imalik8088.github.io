@@ -4,107 +4,86 @@
     <title>Tags on imalik8088</title>
     <link>https://imalik8088.de/tags/</link>
     <description>Recent content in Tags on imalik8088</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate><atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 23:04:54 +0200</lastBuildDate>
+    <atom:link href="https://imalik8088.de/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>helm</title>
+      <title>Helm</title>
       <link>https://imalik8088.de/tags/helm/</link>
       <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/helm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>k6</title>
+      <title>K6</title>
       <link>https://imalik8088.de/tags/k6/</link>
       <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/k6/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kubernetes</title>
+      <title>Kubernetes</title>
       <link>https://imalik8088.de/tags/kubernetes/</link>
       <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/kubernetes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testing</title>
+      <title>Testing</title>
       <link>https://imalik8088.de/tags/testing/</link>
       <pubDate>Mon, 14 Oct 2024 23:04:54 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/testing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>apache flink</title>
+      <title>Apache Flink</title>
       <link>https://imalik8088.de/tags/apache-flink/</link>
       <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/apache-flink/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>savepoints</title>
+      <title>Savepoints</title>
       <link>https://imalik8088.de/tags/savepoints/</link>
       <pubDate>Wed, 18 Oct 2023 00:00:00 +0200</pubDate>
-      
       <guid>https://imalik8088.de/tags/savepoints/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kafka</title>
+      <title>Kafka</title>
       <link>https://imalik8088.de/tags/kafka/</link>
       <pubDate>Wed, 26 Jan 2022 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/tags/kafka/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>mirror maker</title>
+      <title>Mirror Maker</title>
       <link>https://imalik8088.de/tags/mirror-maker/</link>
       <pubDate>Wed, 26 Jan 2022 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/tags/mirror-maker/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>continuous delivery</title>
+      <title>Continuous Delivery</title>
       <link>https://imalik8088.de/tags/continuous-delivery/</link>
       <pubDate>Tue, 30 Mar 2021 09:00:00 +0100</pubDate>
-      
       <guid>https://imalik8088.de/tags/continuous-delivery/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gitlab-ci</title>
+      <title>Gitlab-Ci</title>
       <link>https://imalik8088.de/tags/gitlab-ci/</link>
       <pubDate>Mon, 04 Feb 2019 23:44:02 +0100</pubDate>
-      
       <guid>https://imalik8088.de/tags/gitlab-ci/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kafka-connect</title>
+      <title>Kafka-Connect</title>
       <link>https://imalik8088.de/tags/kafka-connect/</link>
       <pubDate>Fri, 02 Feb 2018 23:08:25 +0100</pubDate>
-      
       <guid>https://imalik8088.de/tags/kafka-connect/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
